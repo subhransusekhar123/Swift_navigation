@@ -9,13 +9,51 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack{
+            VStack{
+                Text("Login Screen")
+                NavigationLink("Go To Home"){
+                    HomeView()
+                }
+                
+                NavigationLink {
+                    HomeView()
+                } label: {
+                    Text("Home")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundStyle(.white)
+                        .cornerRadius(12)
+                }
+                
+                NavigationLink(){
+                    Setting()
+                }label: {
+                    Text("Settings")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundStyle(.white)
+                        .cornerRadius(12)
+                }
+                
+                
+                NavigationLink(){
+                    Profile()
+                }label:{
+                    Text("Profile")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.red)
+                        .foregroundStyle(.white)
+                        .cornerRadius(12)
+                }
+            }
+            
+            .toolbar(.hidden, for: .navigationBar)
+
         }
-        .padding()
     }
 }
 
